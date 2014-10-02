@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The City</title>
+		<link rel="stylesheet" href="assassin.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="jvectormap.css" type="text/css" media="screen"/>
+		<script src="jquery.js"></script>
+		<script src="jvectormap.js"></script>
+		<script src="map.js"></script>
+	</head>
+	<body>
+		<div id="city-map"></div>
+		<script>
+			$(function(){
+				var map = $('#city-map').vectorMap({
+					map: 'be_merc_en',
+					backgroundColor: '#3F5666',
+					regionStyle: {
+						initial: {
+							fill: '#F5E5C0'
+						},
+						selected: {
+							fill: '#EA6045'
+						},
+					}
+				});
+				map.on('click', function(e) {
+					if (~e.target.className.baseVal.indexOf('jvectormap-region')) {
+						alert($(e.target).attr("data-code").toLowerCase());
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
