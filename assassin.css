@@ -1,4 +1,29 @@
+/*
+ * Colors
+ * Red: #EA6045
+ * Yellow: #F8CA4D
+ * White: #F5E5C0
+ * Blue: #3F5666
+ * Grey: #2F3440
+ */
+
 body {
     background: #808080;
     color: white;
 }
+
+#menubox {
+    background: #3F5666;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 2;
+}
+* { margin: 0; padding: 0; }
+a { text-decoration: none; }
+ul { list-style: none; }
+ul.dropdown li                      { font-weight: bold; float: left; zoom: 1; background: #2F3440; }
+ul.dropdown a:hover		    { color: #ffa500; }
+ul.dropdown a:active                { color: #EA6045; }
+ul.dropdown li a                    { display: block; padding: 4px 8px; border-right: 1px solid #333; color: white; }
+#cityname { margin: 15px 10px; }

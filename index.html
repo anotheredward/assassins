@@ -10,26 +10,37 @@
 		<script src="map.js"></script>
 	</head>
 	<body>
-		<div id="city-map"></div>
+		<div id="menubox">
+			<p id="cityname">Namur</p>
+			<ul class="dropdown">
+				<li><a href="#">Attack!</a></li>
+			</ul>
+		</div>
+		<div id="city-map">
+		</div>
+
 		<script>
+			var mapClick = function(e) {
+				if (~e.target.className.baseVal.indexOf('jvectormap-region')) {
+					$("#cityname").text($(e.target).attr("data-code").toLowerCase());
+				}
+			};
 			$(function(){
 				var map = $('#city-map').vectorMap({
 					map: 'be_merc_en',
 					backgroundColor: '#3F5666',
+					regionsSelectable: true,
+					regionsSelectableOne: true,
 					regionStyle: {
 						initial: {
 							fill: '#F5E5C0'
 						},
 						selected: {
-							fill: '#EA6045'
+							fill: '#F8CA4D'
 						},
 					}
 				});
-				map.on('click', function(e) {
-					if (~e.target.className.baseVal.indexOf('jvectormap-region')) {
-						alert($(e.target).attr("data-code").toLowerCase());
-					}
-				});
+				map.on('click', mapClick);
 			});
 		</script>
 	</body>
