@@ -1,8 +1,26 @@
+var districts = [];
+var codes = city_map.paths;
+for(var key in codes){
+	if (codes.hasOwnProperty(key)){
+		districts[key]={strength: 4};
+	}
+}
+
 var mapClick = function(e) {
 	if (~e.target.className.baseVal.indexOf('jvectormap-region')) {
-		$("#cityname").text($(e.target).attr("data-code").toLowerCase());
+		var district_name = $(e.target).attr("data-code");
+		$("#district").text(district_name);
+		$("#strength").text(districts[district_name].strength);
 	}
 };
+
+$('#attack').on('click', function() {
+	var district_name = $('#district').text();
+	districts[district_name].strength -= 1;
+	$("#strength").text(districts[district_name].strength);
+});
+
+
 $(function(){
 	var map = $('#city-map').vectorMap({
 		map: 'be_merc_en',
